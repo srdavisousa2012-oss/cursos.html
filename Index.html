@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plataforma de Cursos</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #020617cc;
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      background: #22c55e;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    .msg {
+      margin-top: 10px;
+      color: #f87171;
+      font-weight: bold;
+    }
+
+    .courses {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .course {
+      background: #0f172a;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🎓 Área de Cursos</h1>
+    <p>Digite a key para liberar todos os cursos</p>
+
+    <input type="password" id="keyInput" placeholder="Digite a key">
+    <button onclick="verificarKey()">Acessar cursos</button>
+
+    <div id="msg" class="msg"></div>
+
+    <div id="courses" class="courses">
+      <h2>📚 Cursos liberados</h2>
+      <div class="course">💻 HTML + CSS Profissional</div>
+      <div class="course">⚙️ JavaScript Completo</div>
+      <div class="course">🐍 Python do Zero</div>
+      <div class="course">📱 Desenvolvimento Mobile</div>
+      <div class="course">🎮 Desenvolvimento de Jogos</div>
+    </div>
+  </div>
+
+  <script>
+    function verificarKey() {
+      const key = document.getElementById("keyInput").value;
+      const msg = document.getElementById("msg");
+      const courses = document.getElementById("courses");
+
+      if (key === "123") {
+        courses.style.display = "block";
+        msg.style.color = "#22c55e";
+        msg.innerText = "✅ Acesso liberado!";
+      } else {
+        courses.style.display = "none";
+        msg.style.color = "#f87171";
+        msg.innerText = "❌ Key inválida!";
+      }
+    }
+  </script>
+
+</body>
+</html>

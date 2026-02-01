@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plataforma de Cursos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #22c55e;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .courses {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .course {
+      background: #334155;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .error {
+      color: #f87171;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎓 Plataforma de Cursos</h1>
+    <p>Digite a key para acessar todos os cursos</p>
+
+    <input type="password" id="keyInput" placeholder="Digite a key">
+    <br>
+    <button onclick="verificarKey()">Acessar</button>
+
+    <p id="msg" class="error"></p>
+
+    <div class="courses" id="courses">
+      <h2>📚 Cursos Liberados</h2>
+
+      <div class="course">💻 Curso de HTML e CSS</div>
+      <div class="course">⚙️ Curso de JavaScript</div>
+      <div class="course">🐍 Curso de Python</div>
+      <div class="course">📱 Curso de Apps Mobile</div>
+      <div class="course">🎮 Curso de Jogos</div>
+    </div>
+  </div>
+
+  <script>
+    function verificarKey() {
+      const key = document.getElementById("keyInput").value;
+      const msg = document.getElementById("msg");
+      const courses = document.getElementById("courses");
+
+      if (key === "123") {
+        courses.style.display = "block";
+        msg.textContent = "";
+      } else {
+        courses.style.display = "none";
+        msg.textContent = "❌ Key inválida!";
+      }
+    }
+  </script>
+
+</body>
+</html>
